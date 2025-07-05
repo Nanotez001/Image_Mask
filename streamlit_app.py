@@ -286,6 +286,7 @@ def main():
 
                 # =======================================
                 original_image = ImageAnalyzer(uploaded_file)
+                original_image_2 = ImageAnalyzer(uploaded_file)
                 watermask_png = ImageAnalyzer(watermask_file)
 
                 scaled = tuple(x * size_buffer for x in original_image.image.size)
@@ -295,8 +296,6 @@ def main():
                 # Mix
                 # width_buffer_scale = 1
                 # height_buffer_scale = 1
-
-                # original_image.width-watermask_png.width
 
                 original_center = ((original_image.width-watermask_png.width)*width_buffer_scale,\
                                    (original_image.height-watermask_png.height)*height_buffer_scale)
@@ -314,7 +313,7 @@ def main():
             # Display the before and after images
             col1, col2,col3 = st.columns(3)
             with col1:
-                st.image(original_image.image, caption="Before", use_container_width=True)
+                st.image(original_image_2.image, caption="Before", use_container_width=True)
 
             with col2:
                 # result_image_path = "C:/Users/LEGION by Lenovo/Desktop/Image_Editor/Result_Test.jpg"
