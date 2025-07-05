@@ -1,0 +1,4 @@
+title,width,x_coordinate,y_coordinate,address
+logo,,,,"asset\Picture\LD\LD_logo.jpg"
+watermask,,,,"asset\Picture\LD\LD_logo.jpg"
+hidden_watermask,,,,"asset\Picture\LD\LD_logo.jpg"
