@@ -349,7 +349,7 @@ def main():
                 # Save result as JPEG to in-memory buffer
                 img_bytes = io.BytesIO()
 
-                result.image.convert("RGB").save(img_bytes, format="JPEG")
+                result.image.convert("RGB").save(img_bytes, format="JPEG",quality = 100)
 
                 platform_fullname = "Teammonij"
                 img_bytes.seek(0)
