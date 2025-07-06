@@ -370,7 +370,7 @@ def main():
                 for i, result in enumerate(result_images):
                     try:
                         img_bytes = io.BytesIO()
-                        result.image.convert("RGB").save(img_bytes, format="JPEG")
+                        result.image.convert("RGB").save(img_bytes, format="JPEG",quality = 100)
                         img_bytes.seek(0)
                     except Exception as e:
                         st.error(f"Error saving image {original_name[i]}: {e}")
