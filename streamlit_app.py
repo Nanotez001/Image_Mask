@@ -248,7 +248,7 @@ def Alignment(xy_alignment,image_size):
 
 # ====================================
 def main():
-    st.title("Batch IMAGE Mask v0.10")
+    st.title("Batch IMAGE Mask v1.01")
 
     # Sidebar components
     st.sidebar.title("Mask_01")
@@ -378,12 +378,24 @@ def main():
                     zip_file.writestr(f"{name_cleaned}_{platform_fullname}_{i+1}.jpg", img_bytes.read())
 
             zip_buffer.seek(0)
-                
+
+            
+            # Normal Export
+            filename = f"{name_cleaned}_{platform_fullname}.zip"
+
+            # Advance export
+            advance_export = st.toggle("Advance export")
+
+            if advance_export:
+                export_name = st.text_input(label = "Folder Name")
+                filename = f"{export_name}.zip"
+
+            st.write(f"Save as //{filename}")
             # Add a single download button for all images as a ZIP file
             st.download_button(
-                label="Download ALL Images as ZIP",
+                label="Download ALL Images",
                 data=zip_buffer,
-                file_name="Result_Images.zip",
+                file_name=filename,
                 mime="application/zip",
                 )
     else:
