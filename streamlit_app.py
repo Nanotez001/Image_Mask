@@ -305,7 +305,7 @@ def main():
             try:
                 
                 # Fix and Save Name
-                name_without_ext = uploaded_file.name
+                name_without_ext = uploaded_file.name.replace('.jpg', '').replace('.png', '').replace('.jpeg', '')
                 name_cleaned = re.sub(r'\(\d+\)', '', name_without_ext)
                 name_cleaned = name_cleaned.strip()
                 original_name.append(name_cleaned)
