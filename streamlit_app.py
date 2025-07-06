@@ -251,26 +251,53 @@ def main():
     st.title("Batch IMAGE Mask v0.10")
 
     # Sidebar components
-    st.sidebar.title("upload")
+    st.sidebar.title("Mask_01")
     watermask_file = st.sidebar.file_uploader("Upload Watermask PNG File (PNG Only)", type=["png"], accept_multiple_files=False)
 
-    opacity = st.sidebar.slider("LOGO Opacity",value=100,min_value=1,max_value=100)
-    opacity_scale = opacity/100
+    is_add_watermask = st.sidebar.toggle("Mask_02")
 
-    size_buffer_slide = st.sidebar.slider("Size",value=50,min_value=1,max_value=100)
-    size_buffer = size_buffer_slide/100
+    watermask_file_2 : bool = False
+    if is_add_watermask:
+        st.sidebar.title("Mask_02")
+        watermask_file_2 = st.sidebar.file_uploader("Upload Watermask_2 PNG File (PNG Only)", type=["png"], accept_multiple_files=False)
 
-    width_buffer=st.sidebar.slider("Width_buffer",value=50,min_value=1,max_value=100)
-    width_buffer_scale = width_buffer/100
-
-    height_buffer=st.sidebar.slider("Height_buffer",value=50,min_value=1,max_value=100)
-    height_buffer_scale = height_buffer/100
 # =======================================================================
     # Main Columns
     uploaded_files = st.file_uploader("Upload JPG Files (คำแนะนำ แก้ไขชื่อไฟล์ให้เรียบร้อยก่อน)", type=["jpg", "jpeg","png"], accept_multiple_files=True)
 
     if uploaded_files and watermask_file:
+        st.write("========== Mask_01 ===========")
+        col1, col2,col3,col4 = st.columns(4)
         
+        with col1:
+            opacity = st.slider("LOGO Opacity",value=100,min_value=1,max_value=100)
+            opacity_scale = opacity/100
+        with col2:
+            size_buffer_slide = st.slider("Size",value=50,min_value=1,max_value=100)
+            size_buffer = size_buffer_slide/100
+        with col3:
+            width_buffer=st.slider("Width_buffer",value=50,min_value=1,max_value=100)
+            width_buffer_scale = width_buffer/100
+        with col4:
+            height_buffer=st.slider("Height_buffer",value=50,min_value=1,max_value=100)
+            height_buffer_scale = height_buffer/100
+
+        if watermask_file_2:
+            col1, col2,col3,col4 = st.columns(4)
+
+            with col1:
+                opacity = st.slider("LOGO Opacity_2",value=100,min_value=1,max_value=100)
+                opacity_scale = opacity/100
+            with col2:
+                size_buffer_slide = st.slider("Size_2",value=50,min_value=1,max_value=100)
+                size_buffer = size_buffer_slide/100
+            with col3:
+                width_buffer=st.slider("Width_buffer_2",value=50,min_value=1,max_value=100)
+                width_buffer_scale = width_buffer/100
+            with col4:
+                height_buffer=st.slider("Height_buffer_2",value=50,min_value=1,max_value=100)
+                height_buffer_scale = height_buffer/100
+
         result_images=[]
         original_name=[]
         # Process each uploaded file
