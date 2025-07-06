@@ -248,7 +248,7 @@ def Alignment(xy_alignment,image_size):
 
 # ====================================
 def main():
-    st.title("Batch IMAGE Mask v1.01")
+    st.title("Batch IMAGE Mask v1.02")
 
     # Sidebar components
     st.sidebar.title("Mask_01")
